@@ -36,20 +36,13 @@
     <a class="mt-2 accent-pink-600">注册</a>
     <span class="mt-2">登录</span>
   </div>
-  <div class="mask">
     <!-- 外层的遮罩 -->
-    <div class="mask-cover flex justify-center" v-if="isShow" @click="closeByMask"></div>
-    <!-- 设置动画 -->
-    <transition name="fade">
-      <!-- 内容区 -->
-      <div class="mask-content flex bg-amber-400" v-if="isShow">
-        <!-- 插槽，放置要插入到遮罩里的内容 -->
-        <slot name="default">111</slot>
-      </div>
-    </transition>
-  </div>
+    <div class="mask-cover" v-if="isShow" @click="closeByMask" >
+    </div>
   <n-layout-content class="content h-14">
     内容布局
+    <br/>
+    <button class="rounded-sm bg-blue-300 ring-2 w-12 h-14">button</button>
   </n-layout-content>
   <n-layout-footer>
     底部
@@ -64,7 +57,8 @@ import {
   NLayoutHeader,
   NLayoutContent,
   NLayoutFooter,
-  NIcon
+  NIcon,
+  // NInput
 } from 'naive-ui'
 import {
   Search,
@@ -79,6 +73,7 @@ export default defineComponent({
     NLayoutContent,
     NLayoutFooter,
     NIcon,
+    // NInput,
     // 图标
     Search,
     List
@@ -139,8 +134,10 @@ export default defineComponent({
 
 //内容层，z-index要大于遮罩层，确保内容在遮罩上显示
 .mask-content {
-  position: fixed;
+  position: relative;
   z-index: 2;
+  height: 50px;
+  margin: 5rem auto 0;
 }
 
 //动画
