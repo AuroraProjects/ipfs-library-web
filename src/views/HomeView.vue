@@ -1,22 +1,23 @@
 <template>
 <n-layout>
-  <n-layout-header>
-    <div class="logo">IPFSLibrary</div>
-    <div class="menu">
-      <nav>
-        <n-button class="button-text" text strong>使用说明</n-button>
-        <n-button class="button-text" text strong>常见问题</n-button>
-        <n-button class="button-text" text strong>开源地址</n-button>
-        <n-button class="button-text" text strong>
-          <n-icon>
-            <search />
-          </n-icon>
-        </n-button>
-      </nav>
+  <n-layout-header class="flex items-center h-16">
+    <div class="flex-none ml-8 flex-1 bg-amber-800">
+      logo
     </div>
-    <div class="login">
-      <n-button text strong>Login</n-button>
-      <n-button class="register" text-color="#FF3987" text strong>Register</n-button>
+    <div class="flex-grow flex-1 bg-amber-500 max-w-sm min-w-max">
+      <div class="flex justify-center flex-nowrap">
+        <span class="mx-3.5">导航选项</span>
+        <span class="mx-3.5">导航选项</span>
+        <span class="mx-3.5">导航选项</span>
+        <span class="mx-3.5">导航选项</span>
+        <span class="mx-3.5">导航选项</span>
+      </div>
+    </div>
+    <div class="flex-none mr-8 flex-1 bg-amber-600">
+      <div class="flex justify-end">
+        <a>注册</a>
+        <a class="ml-3">登录</a>
+      </div>
     </div>
   </n-layout-header>
   <n-layout-content>
@@ -35,10 +36,10 @@ import {
   NLayoutHeader,
   NLayoutContent,
   NLayoutFooter,
-  NButton,
-  NIcon
+  // NButton,
+  // NIcon
 } from 'naive-ui'
-import { Search } from '@vicons/ionicons5'
+// import { Search } from '@vicons/ionicons5'
 
 export default defineComponent({
   components: {
@@ -47,10 +48,10 @@ export default defineComponent({
     NLayoutHeader,
     NLayoutContent,
     NLayoutFooter,
-    NButton,
-    NIcon,
-    // 图标
-    Search,
+    // NButton,
+    // NIcon,
+    // // 图标
+    // Search,
   }
 })
 </script>
