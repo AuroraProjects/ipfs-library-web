@@ -1,0 +1,66 @@
+/*导入 tailwindcss*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*头部布局*/
+.n-layout-header {
+    display: flex;
+    /*background: darkgray;*/
+    justify-content: space-between;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    height: 80px;
+    align-items: center;
+}
+.logo {
+    color: darkgray;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+.n-layout-header div {
+    display: flex;
+    /*background: #42b983;*/
+    height: 30px;
+    flex: 3;
+    align-items: center;
+}
+
+/*头部右侧布局*/
+.login {
+    display: flex;
+    justify-content: flex-end;
+}
+.register {
+    margin-left: 2rem;
+}
+
+/*目录布局*/
+.menu{
+    display: flex;
+    width: 494px;
+    justify-content: center;
+}
+.menu nav {
+    display: flex;
+    /*background: antiquewhite;*/
+    height: 30px;
+    width: 494px;
+    justify-content: center;
+    align-items: center;
+}
+.button-text {
+    font-weight: 700;
+    margin: 0 0.5rem;
+}
+.n-layout-content {
+    display: flex;
+    background: darksalmon;
+    height: 90vh;
+}
+
+/*底部布局*/
+.n-layout-footer {
+    display: flex;
+    background: #42b983;
+    height: 10vh;
+}
