@@ -6,7 +6,7 @@
     </div>
 <!--    目录布局-->
     <div class="flex-grow flex-1 max-w-sm min-w-max md:hidden">
-      <nav class="flex justify-center flex-nowrap h-7 items-center text-base">
+      <nav class="flex justify-center flex-nowrap items-center font-semibold text-base">
           <a class="mx-3.5" href="#">导航选项</a>
           <a class="mx-3.5" href="#">导航选项</a>
           <a class="mx-3.5" href="#">导航选项</a>
@@ -28,7 +28,7 @@
       </div>
     </div>
   </n-layout-header>
-  <div class="mobile-menu lg:hidden" v-if="menuVisible">
+  <div class="mobile-menu lg:hidden font-semibold text-base" v-if="menuVisible">
     <div class="container">
       <nav class="mobile-nav">
         <a href="#">导航选项</a>
@@ -79,15 +79,34 @@
             <n-icon class="feed-icon" color="#999"><chevron-forward /></n-icon>
           </div>
         </article>
+        <article class="feed">
+          <div class="feed-calendar">
+            <div class="feed-calendar-month"> Mar </div>
+            <div class="feed-calendar-day"> 07 </div>
+          </div>
+          <h2 class="feed-title">#Title</h2>
+          <div class="feed-right">
+            <div class="feed-visibility"><n-icon color="#FFC105"><star /></n-icon></div>
+            <div class="feed-length"> datetime </div>
+            <n-icon class="feed-icon" color="#999"><chevron-forward /></n-icon>
+          </div>
+        </article>
       </div>
     </main>
 <!--  底栏布局-->
   </n-layout-content>
   <n-layout-footer class="footer">
-    <div>底部信息</div>
-    <div>底部信息</div>
-    <div>底部信息</div>
-    <div>底部信息</div>
+    <div class="social">
+      <n-icon size="24"><logo-vue /></n-icon>
+      <n-icon size="24" class="ml-3"><logo-twitter /></n-icon>
+    </div>
+    <div class="copyright">Powered by <a href="#">IPFS-Library</a></div>
+    <nav class="footer-nav">
+      <a class="menu-item" href="#">导航</a>
+      <a class="menu-item" href="#">导航</a>
+      <a class="menu-item" href="#">导航</a>
+      <a class="menu-item" href="#">导航</a>
+    </nav>
   </n-layout-footer>
 </n-layout>
 </template>
@@ -108,7 +127,9 @@ import {
   Star,
   ChevronForward,
   EllipsisVertical,
-  LogoGithub
+  LogoGithub,
+  LogoVue,
+  LogoTwitter
 } from '@vicons/ionicons5'
 
 export default defineComponent({
@@ -126,7 +147,9 @@ export default defineComponent({
     Star,
     ChevronForward,
     EllipsisVertical,
-    LogoGithub
+    LogoGithub,
+    LogoVue,
+    LogoTwitter
   },
   setup () {
     const menuVisible = ref(false)
