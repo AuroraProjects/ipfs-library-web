@@ -1,6 +1,6 @@
 <template>
-<n-layout class="menu-open">
-  <n-layout-header class="flex items-center h-16">
+<n-layout>
+  <n-layout-header class="header">
     <div class="flex-none ml-3 lg:mr-8 flex-1 md:flex-2">
       <p class="flex text-base h-7 items-center font-black">IPFSLibrary</p>
     </div>
@@ -18,12 +18,12 @@
     <div class="flex-none mr-3 lg:mr-8 flex-1 md:flex-none text-base">
       <div class="flex justify-end h-7 items-center">
         <div class="visible md:hidden">
-          <a href="#" class="text-pink-500">注册</a>
-          <a href="#" class="ml-3">登录</a>
+          <a href="#" class="text-pink-500">Register</a>
+          <a href="#" class="ml-3">Login</a>
         </div>
         <div class="flex">
           <button><n-icon class="mx-3.5 visible lg:hidden" size="20"><search/></n-icon></button>
-          <n-icon @click="menu" class="visible lg:hidden" size="20"><list /></n-icon>
+          <n-icon @click="menu" class="visible lg:hidden" size="20"><ellipsis-vertical /></n-icon>
         </div>
       </div>
     </div>
@@ -35,17 +35,53 @@
         <a href="#">导航选项</a>
         <a href="#">导航选项</a>
         <a href="#">导航选项</a>
-        <a href="#">注册</a>
-        <a href="#">登录</a>
+        <a href="#">Login</a>
+        <a href="#" class="text-pink-500">Register</a>
       </nav>
     </div>
   </div>
+<!--  内容布局-->
   <n-layout-content class="content">
-    内容布局
-    内容布局
-    内容布局
-    内容布局
-    内容布局
+    <div class="cover">
+      <div class="cover-content">
+        <div>
+          <n-avatar round :size="100" class="avatar"
+                    src="https://avatars.githubusercontent.com/u/32693466?v=4"
+          />
+          <div>
+            这里是网站介绍哈哈哈哈哈哈
+          </div>
+          <div class="cover-cta">
+            <n-button color="#FF79AE" ghost>
+              <template #icon>
+                <n-icon>
+                  <logo-github/>
+                </n-icon>
+              </template>
+              Github
+            </n-button>
+            <n-button color="#000" ghost class="ml-2">Login</n-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main>
+      <div class="content-post">
+        <article class="feed">
+          <div class="feed-calendar">
+            <div class="feed-calendar-month"> Mar </div>
+            <div class="feed-calendar-day"> 07 </div>
+          </div>
+          <h2 class="feed-title">#Title</h2>
+          <div class="feed-right">
+            <div class="feed-visibility"><n-icon color="#FFC105"><star /></n-icon></div>
+            <div class="feed-length"> datetime </div>
+            <n-icon class="feed-icon" color="#999"><chevron-forward /></n-icon>
+          </div>
+        </article>
+      </div>
+    </main>
+<!--  底栏布局-->
   </n-layout-content>
   <n-layout-footer class="footer">
     <div>底部信息</div>
@@ -64,10 +100,15 @@ import {
   NLayoutContent,
   NLayoutFooter,
   NIcon,
+  NAvatar,
+  NButton,
 } from 'naive-ui'
 import {
   Search,
-  List
+  Star,
+  ChevronForward,
+  EllipsisVertical,
+  LogoGithub
 } from '@vicons/ionicons5'
 
 export default defineComponent({
@@ -78,10 +119,14 @@ export default defineComponent({
     NLayoutContent,
     NLayoutFooter,
     NIcon,
-    // NInput,
+    NAvatar,
+    NButton,
     // 图标
     Search,
-    List,
+    Star,
+    ChevronForward,
+    EllipsisVertical,
+    LogoGithub
   },
   setup () {
     const menuVisible = ref(false)
