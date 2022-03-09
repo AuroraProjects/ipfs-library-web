@@ -1,49 +1,57 @@
 <template>
-<n-layout>
+<n-layout class="menu-open">
   <n-layout-header class="flex items-center h-16">
     <div class="flex-none ml-3 lg:mr-8 flex-1 md:flex-2">
       <p class="flex text-base h-7 items-center font-black">IPFSLibrary</p>
     </div>
 <!--    目录布局-->
     <div class="flex-grow flex-1 max-w-sm min-w-max md:hidden">
-      <div class="flex justify-center flex-nowrap h-7 items-center text-base">
-          <span class="mx-3.5">导航选项</span>
-          <span class="mx-3.5">导航选项</span>
-          <span class="mx-3.5">导航选项</span>
-          <span class="mx-3.5">导航选项</span>
-          <n-icon class="mx-3.5" size="20"><search /></n-icon>
-      </div>
+      <nav class="flex justify-center flex-nowrap h-7 items-center text-base">
+          <a class="mx-3.5" href="#">导航选项</a>
+          <a class="mx-3.5" href="#">导航选项</a>
+          <a class="mx-3.5" href="#">导航选项</a>
+          <a class="mx-3.5" href="#">导航选项</a>
+          <button class="flex items-center"><n-icon class="mx-3.5" size="20"><search /></n-icon></button>
+      </nav>
     </div>
 <!--    注册布局-->
-    <div class="flex-none mr-3 lg:mr-8 flex-1 md:flex-none">
+    <div class="flex-none mr-3 lg:mr-8 flex-1 md:flex-none text-base">
       <div class="flex justify-end h-7 items-center">
         <div class="visible md:hidden">
-          <a class="accent-pink-600">注册</a>
-          <a class="ml-3">登录</a>
+          <a href="#" class="text-pink-500">注册</a>
+          <a href="#" class="ml-3">登录</a>
         </div>
         <div class="flex">
-          <n-icon class="mx-3.5 visible lg:hidden" size="20"><search/></n-icon>
+          <button><n-icon class="mx-3.5 visible lg:hidden" size="20"><search/></n-icon></button>
           <n-icon @click="menu" class="visible lg:hidden" size="20"><list /></n-icon>
         </div>
       </div>
     </div>
   </n-layout-header>
-  <div class="menu flex mobile items-end pt-8 pr-3 flex-4" v-if="menuVisible">
-    <span>导航选项</span>
-    <span class="mt-2">导航选项</span>
-    <span class="mt-2">导航选项</span>
-    <span class="mt-2">导航选项</span>
-    <a class="mt-2 accent-pink-600">注册</a>
-    <span class="mt-2">登录</span>
+  <div class="mobile-menu lg:hidden" v-if="menuVisible">
+    <div class="container">
+      <nav class="mobile-nav">
+        <a href="#">导航选项</a>
+        <a href="#">导航选项</a>
+        <a href="#">导航选项</a>
+        <a href="#">导航选项</a>
+        <a href="#">注册</a>
+        <a href="#">登录</a>
+      </nav>
+    </div>
   </div>
   <n-layout-content class="content">
     内容布局
-    <n-input round placeholder="中" />
-    <n-button type="success" class="">
-      Primary
-    </n-button>
+    内容布局
+    内容布局
+    内容布局
+    内容布局
   </n-layout-content>
-  <n-layout-footer>
+  <n-layout-footer class="footer">
+    <div>底部信息</div>
+    <div>底部信息</div>
+    <div>底部信息</div>
+    <div>底部信息</div>
   </n-layout-footer>
 </n-layout>
 </template>
@@ -56,8 +64,6 @@ import {
   NLayoutContent,
   NLayoutFooter,
   NIcon,
-  NInput,
-  NButton
 } from 'naive-ui'
 import {
   Search,
@@ -72,8 +78,6 @@ export default defineComponent({
     NLayoutContent,
     NLayoutFooter,
     NIcon,
-    NInput,
-    NButton,
     // NInput,
     // 图标
     Search,
