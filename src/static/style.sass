@@ -1,0 +1,331 @@
+.header
+  display: flex
+  justify-content: center
+  height: 80px
+  align-items: center
+  margin-left: auto
+  margin-right: auto
+  max-width: 1130px
+
+//内容内块
+.content
+  height: 100vh
+  z-index: 1
+
+// 链接伪类选择器
+a:hover
+  color: darkgray
+
+*, :after, :before
+  box-sizing: inherit
+
+button:hover
+  color: darkgray
+
+.main
+  display: block
+
+.content-post
+  margin-left: auto
+  margin-right: auto
+  max-width: 750px
+  width: 100%
+  padding: 2rem 4vw
+  .medium
+    max-width: calc(750px + 8vw)
+
+.feed
+  align-items: center
+  display: flex
+  line-height: 1
+  overflow: hidden
+  padding: 20px 0
+  position: relative
+  border: 1px none #e6e6e6
+  border-bottom-style: solid
+
+.feed-calendar
+  color: #FF1A75
+  display: flex
+  font-size: 0.8rem
+  font-weight: 800
+  margin-right: 1.5rem
+  min-width: 45px
+  white-space: nowrap
+
+.feed-calendar-month
+  margin-right: .4rem
+  text-transform: uppercase
+
+.feed-calendar
+  color: #FF1A75
+  display: flex
+  font-size: 0.8rem
+  font-weight: 800
+  margin-right: 1.5rem
+  min-width: 45px
+  white-space: nowrap
+
+.feed-title
+  flex-grow: 1
+  font-size: 1rem
+  font-weight: 400
+  margin-bottom: 0
+  overflow: hidden
+  padding-right: 1rem
+  text-overflow: ellipsis
+  white-space: nowrap
+
+.feed-length
+  font-size: 0.8rem
+  white-space: nowrap
+  color: #999
+
+.feed-right
+  align-items: center
+  display: flex
+  transition: margin 0.2s ease-in-out
+
+.feed-visibility
+  margin-right: 0.8rem
+  width: 16px
+
+.feed-icon
+  position: absolute
+  right: 0
+  transform: translateX(2rem)
+  transition: transform .2s ease-in-out
+  width: 20px
+
+.feed:hover
+  .feed-title
+    opacity: 0.8
+
+.feed:hover
+  .feed-right
+    margin-right: 1.6rem
+
+.feed:hover
+  .feed-icon
+    transform: translateX(0.4rem)
+
+.cover
+  margin-top: 1.8rem
+  margin-left: auto
+  margin-right: auto
+  max-width: calc(1130px + 8vw)
+  padding-left: 4vw
+  padding-right: 4vw
+
+.cover-content
+  align-items: center
+  display: flex
+  flex-direction: column
+  margin: 0 auto
+  max-width: 500px
+  text-align: center
+
+.avatar
+  margin-bottom: 20px
+
+.cover-cta
+  display: flex
+  margin-top: 1rem
+  justify-content: center
+
+.footer
+  background-color: #fff
+  align-items: center
+  display: flex
+  flex-direction: column
+  padding: 1.5rem 0 1rem
+  margin-left: auto
+  margin-right: auto
+  max-width: calc(1130px + 8vw)
+  width: 100%
+
+.social
+  display: flex
+  margin-bottom: 1rem
+
+.copyright
+  font-size: 10px
+  letter-spacing: -.05rem
+  color: #999
+
+.copyright a:hover
+  text-decoration: underline
+  opacity: 1
+
+.footer-nav
+  align-items: center
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  margin-top: .5rem
+
+.footer-nav
+  .menu-item
+    align-items: center
+    color: #999
+    display: flex
+    font-size: 10px
+    letter-spacing: -.05rem
+    font-weight: 400
+    margin: 0
+
+.footer-nav .menu-item+.menu-item:before
+  content: "\02022"
+  font-family: serif
+  line-height: 1
+  padding: 0 .7rem
+
+.email
+  display: flex
+  margin-left: auto
+  margin-right: auto
+  max-width: calc(1130px + 8vw)
+  padding-left: 4vw
+  padding-right: 4vw
+  justify-content: center
+  margin-bottom: 1rem
+
+.subscribe-from
+  @apply rounded-full
+  padding: 6px
+  background-color: #EDEDF1
+  input:focus
+    outline: none
+  input:-webkit-autofill
+    transition: background-color 5000s ease-in-out 0s
+  input
+    background: none
+    outline: none
+
+// 搜索栏模态框
+.modal-opened
+  .modal-overlay
+    opacity: 1
+    pointer-events: unset
+  .modal
+    transform: translateY(0)
+
+.modal
+  border-radius: 5px
+  margin: 9rem auto 0
+  overflow: hidden
+  transform: translateY(-10px)
+  transition: transform .2s ease-in-out
+
+.modal-search
+  max-width: 500px
+
+.modal-close
+  position: absolute
+  right: 15px
+  top: 15px
+
+.modal-overlay
+  -webkit-backdrop-filter: blur(8px)
+  backdrop-filter: blur(8px)
+  background-color: rgba(255,255,255,.7)
+  bottom: 0
+  display: none
+  left: 0
+  opacity: 0
+  pointer-events: none
+  position: fixed
+  right: 0
+  top: 0
+  transition: opacity .2s ease-in-out
+  z-index: 90
+
+.search-from
+  display: flex
+  flex: 2
+  padding: 6px
+  background-color: #EDEDF1
+  input:focus
+    outline: none
+  input:-webkit-autofill
+    transition: background-color 5000s ease-in-out 0s
+  input
+    background: none
+    outline: none
+    width: 100%
+
+//菜单展开按钮
+.burger
+  cursor: pointer
+  height: 30px
+  margin-left: 5px
+  margin-right: -7px
+  position: relative
+  width: 30px
+
+.burger-bar
+  height: 100%
+  left: 0
+  position: absolute
+  top: 0
+  transition: transform .1806s cubic-bezier(.04,.04,.12,.96)
+  width: 100%
+
+.burger-bar::before
+  content: ""
+  position: absolute
+  left: 7px
+  width: 16px
+  height: 2px
+  background-color: #000
+  transition: transform 0.1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.1008s
+
+.burger-bar:first-child::before
+  top: 14px
+  transform: translateY(-3px)
+
+.burger-bar:last-child::before
+  bottom: 14px
+  transform: translateY(3px)
+
+.menu-opened
+  .burger .burger-bar
+    transition: transform 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s
+  .burger .burger-bar:first-child
+    transform: rotate(45deg)
+  .burger .burger-bar:last-child
+    transform: rotate(-45deg)
+  .burger .burger-bar::before
+    transition: transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96)
+    transform: none
+
+.menu-opened
+  .mobile-menu
+    display: block
+
+.mobile-menu
+  background-color: rgba(255, 255, 255, 0.7)
+  backdrop-filter: blur(8px)
+  display: none
+  height: calc(100vh - 80px)
+  left: 0
+  padding-top: 3rem
+  position: absolute
+  top: 80px
+  width: 100%
+  z-index: 90
+  .container
+    margin-left: auto
+    margin-right: auto
+    max-width: calc(1130px + 8vw)
+    padding-left: 4vw
+    padding-right: 4vw
+    width: 100%
+    nav
+      display: flex
+      flex-direction: column
+      align-items: center
+      a
+        font-size: 1.5rem
+        margin-top: 15px
+        font-weight: 500

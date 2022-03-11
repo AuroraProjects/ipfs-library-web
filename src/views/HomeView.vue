@@ -1,42 +1,67 @@
 <template>
-  <n-layout>
-    <n-layout-header>header</n-layout-header>
-    <n-layout-content content-style="padding: 24px;">
-      content
+  <n-layout :class="{'modal-opened': modal, 'menu-opened': menu}">
+    <n-layout-header class="header">
+      <herder-view
+          :modal="modal"
+          :menu="menu"
+          @updateModal="updateModal"
+          @closeModal="closeModal"
+          @menuAction="menuAction"
+      />
+    </n-layout-header>
+    <!--  内容布局-->
+    <n-layout-content class="content">
+      <content-view />
+      <!--  底栏布局-->
     </n-layout-content>
-    <n-layout-footer>footer</n-layout-footer>
+    <n-layout-footer class="footer">
+      <footer-view />
+    </n-layout-footer>
   </n-layout>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-import { NLayout, NLayoutHeader, NLayoutContent, NLayoutFooter } from 'naive-ui'
+import HerderView from "@/components/HerderView"
+import ContentView from "@/components/ContentView"
+import FooterView from "@/components/FooterView"
+import { defineComponent, ref } from "vue"
+import {
+  NLayout,
+  NLayoutHeader,
+  NLayoutContent,
+  NLayoutFooter,
+} from "naive-ui";
 
 export default defineComponent({
   components: {
+    HerderView,
     NLayout,
     NLayoutHeader,
     NLayoutContent,
-    NLayoutFooter
+    NLayoutFooter,
+    ContentView,
+    FooterView
+  },
+  setup() {
+    const modal = ref(false)
+    // 下发子组件的数据
+    const updateModal = (bool) => {
+      modal.value = bool
+    }
+    const closeModal = (bool) => {
+      modal.value = bool
+    }
+    const menu = ref(false)
+    const menuAction = (bool) => {
+      menu.value = bool
+    }
+    return {
+      modal,
+      menu,
+      menuAction,
+      updateModal,
+      closeModal
+    }
   }
 })
 </script>
-
-<style scoped>
-.n-layout-header,
-.n-layout-footer {
-  display: flex;
-  background: #42b983;
-  padding: 24px;
-}
-
-.n-layout-sider {
-  background: rgba(128, 128, 128, 0.3);
-}
-
-.n-layout-content {
-  display: flex;
-  height: 100vh;
-  background: rgba(128, 128, 128, 0.4);
-}
-</style>
