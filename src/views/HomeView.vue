@@ -1,21 +1,12 @@
 <template>
-  <n-layout :class="{'modal-opened': modal}">
+  <n-layout :class="{'modal-opened': modal, 'menu-opened': menu}">
     <n-layout-header class="header">
       <div class="flex-none ml-3 lg:mr-8 flex-1 md:flex-2">
         <p class="flex text-base h-7 items-center font-black">IPFSLibrary</p>
       </div>
-      <!--    目录布局-->
+      <!--目录布局-->
       <div class="flex-grow flex-1 max-w-sm min-w-max md:hidden">
-        <nav
-          class="
-            flex
-            justify-center
-            flex-nowrap
-            items-center
-            font-semibold
-            text-base
-          "
-        >
+        <nav class="flex justify-center flex-nowrap items-center font-semibold">
           <a class="mx-3.5" href="#">导航选项</a>
           <a class="mx-3.5" href="#">导航选项</a>
           <a class="mx-3.5" href="#">导航选项</a>
@@ -33,15 +24,26 @@
             <a href="#" class="ml-3">Login</a>
           </div>
           <div class="flex">
-            <button>
-              <n-icon class="mx-3.5 visible lg:hidden" size="20" @click="search"
+            <button class="flex items-center">
+              <n-icon class="visible lg:hidden" size="20" @click="search"
                 ><search
               /></n-icon>
             </button>
-            <n-icon class="visible lg:hidden" size="20"
-              ><ellipsis-vertical
-            /></n-icon>
+            <div @click="menuAction" class="lg:hidden burger">
+              <div class="burger-bar"></div>
+              <div class="burger-bar"></div>
+            </div>
           </div>
+        </div>
+      </div>
+      <div class="mobile-menu lg:hidden">
+        <div class="container">
+          <nav>
+            <a style="margin-top: 0" href="#">导航选项</a>
+            <a href="#">导航选项</a>
+            <a href="#">导航选项</a>
+            <a href="#">导航选项</a>
+          </nav>
         </div>
       </div>
     </n-layout-header>
@@ -141,7 +143,7 @@
           <n-button style="background-color: #FF79AE" color="#FF79AE">搜索</n-button>
         </div>
       </div>
-      <n-icon class="modal-close" size="24" color="#fff" @click="modalClose"><close/></n-icon>
+      <n-icon class="modal-close" size="24" color="#000" @click="modalClose"><close/></n-icon>
     </div>
   </n-layout>
 </template>
@@ -161,7 +163,6 @@ import {
   Search,
   Star,
   ChevronForward,
-  EllipsisVertical,
   LogoGithub,
   LogoVue,
   LogoTwitter,
@@ -182,7 +183,6 @@ export default defineComponent({
     Search,
     Star,
     ChevronForward,
-    EllipsisVertical,
     LogoGithub,
     LogoVue,
     LogoTwitter,
@@ -196,10 +196,16 @@ export default defineComponent({
     const modalClose = () => {
       modal.value = false
     }
+    const menu = ref(false)
+    const menuAction = () => {
+      menu.value = !menu.value
+    }
     return {
       search,
       modal,
-      modalClose
+      modalClose,
+      menu,
+      menuAction
     };
   },
 });
