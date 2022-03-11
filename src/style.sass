@@ -1,9 +1,9 @@
-.mobile-menu
-  display: block
-  padding-top: 2rem
-  a
-    text-align: right
-    padding-top: 1rem
+//.mobile-menu
+//  display: block
+//  padding-top: 2rem
+//  a
+//    text-align: right
+//    padding-top: 1rem
 
 
 .header
@@ -15,21 +15,21 @@
   margin-right: auto
   max-width: 1130px
 
-.container
-  margin-left: auto
-  margin-right: auto
-  max-width: calc(1130px + 8vw)
-  padding-left: 4vw
-  padding-right: 4vw
-  width: 100%
-  position: absolute
-  height: 80vh
-  z-index: 2
-  background-color: #ffffff
+//.container
+//  margin-left: auto
+//  margin-right: auto
+//  max-width: calc(1130px + 8vw)
+//  padding-left: 4vw
+//  padding-right: 4vw
+//  width: 100%
+//  position: absolute
+//  height: 80vh
+//  z-index: 2
+//  background-color: #ffffff
 
-.mobile-nav
-  display: flex
-  flex-direction: column
+//.mobile-nav
+//  display: flex
+//  flex-direction: column
 
 
 //内容内块
@@ -215,12 +215,6 @@ button:hover
   justify-content: center
   margin-bottom: 1rem
 
-.email-input
-  display: block
-  block-shadow: none
-  border: 0
-  background-color:#00000000
-
 .subscribe-from
   @apply rounded-full
   padding: 6px
@@ -232,3 +226,55 @@ button:hover
   input
     background: none
     outline: none
+
+// 搜索栏模态框
+.modal-opened
+  .modal-overlay
+    opacity: 1
+    pointer-events: unset
+  .modal
+    transform: translateY(0)
+
+.modal
+  border-radius: 5px
+  margin: 9rem auto 0
+  overflow: hidden
+  transform: translateY(-10px)
+  transition: transform .2s ease-in-out
+
+.modal-search
+  max-width: 500px
+
+.modal-close
+  position: absolute
+  right: 15px
+  top: 15px
+
+.modal-overlay
+  -webkit-backdrop-filter: blur(8px)
+  backdrop-filter: blur(8px)
+  background-color: rgba(0,0,0,.7)
+  bottom: 0
+  display: none
+  left: 0
+  opacity: 0
+  pointer-events: none
+  position: fixed
+  right: 0
+  top: 0
+  transition: opacity .2s ease-in-out
+  z-index: 90
+
+.search-from
+  display: flex
+  flex: 2
+  padding: 6px
+  background-color: #EDEDF1
+  input:focus
+    outline: none
+  input:-webkit-autofill
+    transition: background-color 5000s ease-in-out 0s
+  input
+    background: none
+    outline: none
+    width: 100%

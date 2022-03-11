@@ -1,5 +1,5 @@
 <template>
-  <n-layout>
+  <n-layout :class="{'modal-opened': modal}">
     <n-layout-header class="header">
       <div class="flex-none ml-3 lg:mr-8 flex-1 md:flex-2">
         <p class="flex text-base h-7 items-center font-black">IPFSLibrary</p>
@@ -21,7 +21,7 @@
           <a class="mx-3.5" href="#">导航选项</a>
           <a class="mx-3.5" href="#">导航选项</a>
           <button class="flex items-center">
-            <n-icon class="mx-3.5" size="20"><search /></n-icon>
+            <n-icon class="mx-3.5" size="20" @click="search"><search /></n-icon>
           </button>
         </nav>
       </div>
@@ -34,32 +34,17 @@
           </div>
           <div class="flex">
             <button>
-              <n-icon class="mx-3.5 visible lg:hidden" size="20"
+              <n-icon class="mx-3.5 visible lg:hidden" size="20" @click="search"
                 ><search
               /></n-icon>
             </button>
-            <n-icon @click="menu" class="visible lg:hidden" size="20"
+            <n-icon class="visible lg:hidden" size="20"
               ><ellipsis-vertical
             /></n-icon>
           </div>
         </div>
       </div>
     </n-layout-header>
-    <div
-      class="mobile-menu lg:hidden font-semibold text-base"
-      v-if="menuVisible"
-    >
-      <div class="container">
-        <nav class="mobile-nav">
-          <a href="#">导航选项</a>
-          <a href="#">导航选项</a>
-          <a href="#">导航选项</a>
-          <a href="#">导航选项</a>
-          <a href="#">Login</a>
-          <a href="#" class="text-pink-500">Register</a>
-        </nav>
-      </div>
-    </div>
     <!--  内容布局-->
     <n-layout-content class="content">
       <div class="cover">
@@ -126,14 +111,14 @@
     </n-layout-content>
     <n-layout-footer class="footer">
       <div class="email">
-        <from class="subscribe-from">
+        <form class="subscribe-from">
           <input
             placeholder="请输入您的邮箱"
-            class="emali-input ml-3"
+            class="ml-3"
             type="text"
           />
           <n-button style="background-color: #FF79AE" color="#FF79AE" round>订阅</n-button>
-        </from>
+        </form>
       </div>
       <div class="social">
         <n-icon size="24"><logo-vue /></n-icon>
@@ -147,6 +132,17 @@
         <a class="menu-item" href="#">导航</a>
       </nav>
     </n-layout-footer>
+    <!-- 搜索框遮罩-->
+    <div class="modal-overlay" style="display: block">
+      <div class="modal modal-search">
+    <!--搜索框-->
+        <div class="search-from">
+          <input class="ml-5" placeholder="你想要什么?">
+          <n-button style="background-color: #FF79AE" color="#FF79AE">搜索</n-button>
+        </div>
+      </div>
+      <n-icon class="modal-close" size="24" color="#fff" @click="modalClose"><close/></n-icon>
+    </div>
   </n-layout>
 </template>
 
@@ -169,6 +165,7 @@ import {
   LogoGithub,
   LogoVue,
   LogoTwitter,
+  Close
 } from "@vicons/ionicons5";
 
 export default defineComponent({
@@ -189,15 +186,20 @@ export default defineComponent({
     LogoGithub,
     LogoVue,
     LogoTwitter,
+    Close
   },
   setup() {
-    const menuVisible = ref(false);
-    const menu = () => {
-      menuVisible.value = !menuVisible.value;
-    };
+    const modal = ref(false)
+    const search = () => {
+      modal.value = true
+    }
+    const modalClose = () => {
+      modal.value = false
+    }
     return {
-      menuVisible,
-      menu,
+      search,
+      modal,
+      modalClose
     };
   },
 });
