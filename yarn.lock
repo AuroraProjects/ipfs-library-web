@@ -9,6 +9,11 @@
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.0"
 
+"@assortment/darkmodejs@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@assortment/darkmodejs/-/darkmodejs-1.2.1.tgz#b021f6d2c5b19d22115bbbc81711adb52322e066"
+  integrity sha512-kP8ZJKG4BluaYSAwsM3u6s4Zoa2NjUaQbKDBefhpYTyWuGxc+OeNvndsVZz4CIvCcUAMXbu9FX9HeKptfoMkOg==
+
 "@babel/code-frame@7.12.11":
   version "7.12.11"
   resolved "https://registry.npmmirror.com/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"

@@ -22,7 +22,7 @@
     <div class="menu-item" @click="demo">
       <n-icon size="11" v-if="!isDark" :component="Sunny" />
       <n-icon size="11" v-else :component="Moon" />
-      <span class="ml-2">System theme</span>
+      <span class="ml-2 cursor-pointer">System theme</span>
     </div>
   </nav>
 </template>
@@ -38,7 +38,6 @@ import {
   LogoTwitter,
   Sunny,
   Moon
-
 } from '@vicons/ionicons5'
 import { useStore } from "vuex"
 
@@ -53,7 +52,7 @@ export default defineComponent({
     const store = useStore()
     const demo = () => {
       if (localStorage.getItem('theme') === 'dark') {
-        store.commit('saveTheme', '')
+        store.commit('saveTheme', 'light')
       } else {
         store.commit('saveTheme', 'dark')
       }

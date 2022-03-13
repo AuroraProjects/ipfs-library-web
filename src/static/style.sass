@@ -2,12 +2,16 @@
   --close-background: #000
   --email-background: #EDEDF1
   --menu-background: rgba(255, 255, 255, 0.7)
+  --footer-background: #fff
+  --herde-background: #fff
 
 .dark
   --close-background: #CFD0D0
-  --email-background: #0F0F14
+  --email-background: #18181C
   --menu-background: rgba(0, 0, 0, 0.7)
   --n-text-color: #fff
+  --footer-background: rgb(16, 16, 20)
+  --herde-background: rgb(16, 16, 20)
 
 .n-layout
   display: flex
@@ -16,6 +20,7 @@
   flex: 1
 
 .header
+  background-color: var(--herde-background)
   display: flex
   justify-content: center
   height: 80px
@@ -27,6 +32,7 @@
 //内容内块
 .content
   z-index: 1
+  min-height: calc(100vh - 80px - 186px)
 
 // 链接伪类选择器
 a:hover
@@ -150,7 +156,7 @@ button:hover
   justify-content: center
 
 .footer
-  //background-color: #fff
+  background-color: var(--footer-background)
   align-items: center
   display: flex
   flex-direction: column

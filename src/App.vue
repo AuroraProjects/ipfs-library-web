@@ -10,6 +10,7 @@
 </template>
 <script>
 import { defineComponent, computed } from 'vue'
+import darkmodejs from '@assortment/darkmodejs'
 import {
   NConfigProvider,
   darkTheme,
@@ -21,6 +22,11 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
+    const config = { onChange: (activeTheme) => {
+        store.commit('saveTheme', activeTheme)
+      } }
+    darkmodejs(config)
+    console.log(store.state.darkTheme)
     const getDarkTheme = computed(() =>
       store.state.darkTheme === 'dark' ? darkTheme : undefined
     )

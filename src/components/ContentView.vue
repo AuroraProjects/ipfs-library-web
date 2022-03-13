@@ -87,55 +87,7 @@ const data = [
     ipfsKey: '#eeeeeeeeeeeee'
   },
   {
-    id: 2,
-    title: '人民的名义',
-    addDate: '2022-01-01',
-    ipfsKey: '#eeeeeeeeeeeee'
-  },
-  {
-    id: 3,
-    title: '人民的名义',
-    addDate: '2022-01-01',
-    ipfsKey: '#eeeeeeeeeeeee'
-  },
-  {
-    id: 4,
-    title: '人民的名义',
-    addDate: '2022-01-01',
-    ipfsKey: '#eeeeeeeeeeeee'
-  },
-  {
-    id: 2,
-    title: '人民的名义',
-    addDate: '2022-01-01',
-    ipfsKey: '#eeeeeeeeeeeee'
-  },
-  {
-    id: 3,
-    title: '人民的名义',
-    addDate: '2022-01-01',
-    ipfsKey: '#eeeeeeeeeeeee'
-  },
-  {
-    id: 4,
-    title: '人民的名义',
-    addDate: '2022-01-01',
-    ipfsKey: '#eeeeeeeeeeeee'
-  },
-  {
-    id: 2,
-    title: '人民的名义',
-    addDate: '2022-01-01',
-    ipfsKey: '#eeeeeeeeeeeee'
-  },
-  {
-    id: 3,
-    title: '人民的名义',
-    addDate: '2022-01-01',
-    ipfsKey: '#eeeeeeeeeeeee'
-  },
-  {
-    id: 4,
+    id: 1,
     title: '人民的名义',
     addDate: '2022-01-01',
     ipfsKey: '#eeeeeeeeeeeee'
