@@ -1,5 +1,5 @@
 <template>
-  <n-layout :class="{'modal-opened': modal, 'menu-opened': menu}">
+  <n-layout :class="{'modal-opened': modal, 'menu-opened': menu}" class="site">
     <n-layout-header class="header">
       <herder-view
           :modal="modal"
@@ -12,8 +12,8 @@
     <!--  内容布局-->
     <n-layout-content class="content">
       <content-view />
-      <!--  底栏布局-->
     </n-layout-content>
+    <!--  底栏布局-->
     <n-layout-footer class="footer">
       <footer-view />
     </n-layout-footer>

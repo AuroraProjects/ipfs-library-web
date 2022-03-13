@@ -19,11 +19,16 @@
     <a class="menu-item" href="#">导航</a>
     <a class="menu-item" href="#">导航</a>
     <a class="menu-item" href="#">导航</a>
+    <div class="menu-item" @click="demo">
+      <n-icon size="11" v-if="!isDark" :component="Sunny" />
+      <n-icon size="11" v-else :component="Moon" />
+      <span class="ml-2">System theme</span>
+    </div>
   </nav>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import {computed, defineComponent} from 'vue'
 import {
   NIcon,
   NButton,
@@ -31,13 +36,35 @@ import {
 import {
   LogoVue,
   LogoTwitter,
+  Sunny,
+  Moon
+
 } from '@vicons/ionicons5'
+import { useStore } from "vuex"
+
 export default defineComponent({
   components: {
     NIcon,
     NButton,
     LogoVue,
     LogoTwitter
+  },
+  setup() {
+    const store = useStore()
+    const demo = () => {
+      if (localStorage.getItem('theme') === 'dark') {
+        store.commit('saveTheme', '')
+      } else {
+        store.commit('saveTheme', 'dark')
+      }
+    }
+    const isDark = computed(() => store.state.darkTheme === 'dark')
+    return {
+      demo,
+      Sunny,
+      Moon,
+      isDark
+    }
   }
 })
 </script>

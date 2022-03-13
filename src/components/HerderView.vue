@@ -53,7 +53,7 @@
         <n-button style="background-color: #FF79AE" color="#FF79AE">搜索</n-button>
       </div>
     </div>
-    <n-icon class="modal-close" size="24" color="#000" @click="modalClose"><close/></n-icon>
+    <n-icon class="modal-close" size="24" @click="modalClose"><close/></n-icon>
   </div>
 </template>
 
@@ -65,7 +65,8 @@ import {
 import { defineComponent } from 'vue'
 import {
   NIcon,
-  NButton
+  NButton,
+  darkTheme
 } from 'naive-ui'
 export default defineComponent({
   components: {
@@ -94,7 +95,8 @@ export default defineComponent({
     return {
       search,
       modalClose,
-      menuAction
+      menuAction,
+      darkTheme
     }
   }
 })
