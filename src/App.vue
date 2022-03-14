@@ -3,14 +3,14 @@
         :theme="getDarkTheme"
         :theme-overrides="getDarkTheme === undefined ? lightThemeOverrides : darkThemeOverrides"
     >
-      <div id="app" :class="{'dark': isDark}">
+      <div id="app">
         <router-view />
       </div>
     </n-config-provider>
 </template>
 <script>
 import { defineComponent, computed } from 'vue'
-import darkmodejs from '@assortment/darkmodejs'
+// import darkmodejs from '@assortment/darkmodejs'
 import {
   NConfigProvider,
   darkTheme,
@@ -22,19 +22,18 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
-    const config = { onChange: (activeTheme) => {
-        store.commit('saveTheme', activeTheme)
-      } }
-    darkmodejs(config)
-    console.log(store.state.darkTheme)
+    store.commit('setTheme')
+    // const config = { onChange: (activeTheme) => {
+    //     store.commit('saveTheme', activeTheme)
+    //   } }
+    // darkmodejs(config)
+    if (store.state.darkTheme === 'dark') {
+      document.getElementById('body').classList.add('dark')
+    }
     const getDarkTheme = computed(() =>
       store.state.darkTheme === 'dark' ? darkTheme : undefined
     )
-    store.commit('setTheme')
     const isDark = computed(() => store.state.darkTheme === 'dark')
-    /**
-     * @type import('naive-ui').GlobalThemeOverrides
-     */
     // 主题覆盖选项
     const darkThemeOverrides = {
     }

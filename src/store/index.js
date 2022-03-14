@@ -13,6 +13,11 @@ export default createStore({
     saveTheme(state, data) {
       state.darkTheme = data
       localStorage.theme = data
+      if (data === 'dark') {
+        document.getElementById('body').classList.add('dark')
+      } else {
+        document.getElementById('body').classList.remove('dark')
+      }
     }
   },
   actions: {
